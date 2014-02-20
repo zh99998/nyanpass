@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.net.Uri;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +25,7 @@ import com.loopj.android.http.RequestParams;
 public class MainActivity extends ActionBarActivity {
     SoundPool sp;
     int music;
+    private ShareActionProvider mShareActionProvider;
     RequestParams params = new RequestParams("ck", "1");
     AsyncHttpClient client = new AsyncHttpClient();
     AsyncHttpResponseHandler handler = new AsyncHttpResponseHandler() {
@@ -56,9 +59,23 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+        // Get the menu item.
+        MenuItem menuItem = menu.findItem(R.id.menu_item_share);
+        // Get the provider and hold onto it to set/change the share intent.
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.nyanpass.nyanpass");
+        shareIntent.setType("text/plain");
+
+        mShareActionProvider.setShareIntent(shareIntent);
+
+        // Return true to display menu
         return true;
     }
 
@@ -86,7 +103,7 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }

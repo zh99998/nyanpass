@@ -3,6 +3,8 @@
 
     <string name="app_name">Nyanpass</string>
     <string name="nyanpass">にゃんぱすー</string>
+    <string name="notice">音量注意</string>
     <string name="action_website">Website</string>
+    <string name="action_share">Share</string>
 
 </resources>

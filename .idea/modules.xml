@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Nyanpass.iml" filepath="$PROJECT_DIR$/Nyanpass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nyanpass.iml" filepath="$PROJECT_DIR$/nyanpass.iml" />
       <module fileurl="file://$PROJECT_DIR$/nyanpass.iml" filepath="$PROJECT_DIR$/nyanpass.iml" />
       <module fileurl="file://$PROJECT_DIR$/nyanpass/nyanpass-nyanpass.iml" filepath="$PROJECT_DIR$/nyanpass/nyanpass-nyanpass.iml" />
     </modules>

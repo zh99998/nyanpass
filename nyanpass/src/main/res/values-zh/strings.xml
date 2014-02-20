@@ -4,5 +4,7 @@
     <string name="app_name">喵帕斯</string>
     <string name="nyanpass">にゃんぱすー</string>
     <string name="action_website">网站</string>
+    <string name="action_share">分享</string>
+    <string name="notice">音量注意</string>
 
 </resources>
